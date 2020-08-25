@@ -8,9 +8,9 @@
         steps:
           - checkout
           - setup_remote_docker
-          - restore_cache:
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-              key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          # - restore_cache:
+          # # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          #     key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           - run:
               name: Build Docker image
               command: docker build -t $IMAGE_NAME:latest .
@@ -22,4 +22,3 @@
               filters:
                 branches:
                   only: master
-
